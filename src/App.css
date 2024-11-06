@@ -52,6 +52,7 @@ h1 {
   border-radius: 8px;
   text-align: center;
   outline: none;
+  transition: all 0.3s ease;
 }
 
 .Movie-container {
@@ -117,4 +118,22 @@ h1 {
 
 .Movie-wrapper:hover .Movie-image {
   transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .Movie-search {
+    font-size: 16px;
+    height: 45px;
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .Movie-search {
+    font-size: 14px;
+    height: 40px;
+    max-width: 100%;
+    width: 320px;
+    padding: 8px;
+  }
 }
