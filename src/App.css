@@ -1,129 +1,120 @@
 @import url("https://fonts.googleapis.com/css2?family=Reddit+Sans+Condensed:wght@200..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
+  background-color: #f4f4f9;
+  color: #333;
   font-family: "Roboto", sans-serif;
-  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
 }
 
 .App {
   text-align: center;
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
 }
 
 .App-header {
-  background-color: #1f2833;
-  min-height: 100vh;
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  color: #66fcf1;
+  background-color: #282c34;
+  padding: 30px;
+  border-radius: 12px;
+  color: white;
+  margin-bottom: 20px;
 }
 
 h1 {
   font-size: 2.5em;
-  margin-bottom: 20px;
-  color: #45a29e;
   font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .Movie-search {
   height: 50px;
-  font-size: 1rem;
-  padding: 0 20px;
-  margin-bottom: 25px;
-  width: 60%;
-  max-width: 500px;
-  color: #1f2833;
+  font-size: 18px;
+  padding: 10px;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 600px;
+  color: #282c34;
   border: none;
-  border-radius: 25px;
+  border-radius: 8px;
   text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
-}
-
-.Movie-search:focus {
   outline: none;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-  border: 2px solid #45a29e;
 }
 
 .Movie-container {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  overflow-x: auto;
   gap: 20px;
-  padding: 20px;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
+  padding: 20px 0;
+  scroll-snap-type: x mandatory;
+}
+
+.Movie-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.Movie-container::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+.Movie-container::-webkit-scrollbar-track {
+  background-color: #f4f4f9;
 }
 
 .Movie-wrapper {
+  min-width: 250px;
+  max-width: 250px;
+  flex: 0 0 auto;
   background-color: #ffffff;
-  border-radius: 15px;
-  padding: 10px;
-  overflow: hidden;
+  border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  scroll-snap-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .Movie-wrapper:hover {
   transform: translateY(-10px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .Movie-title {
-  font-size: 1.1rem;
+  font-size: 1.2em;
   font-weight: bold;
   margin: 10px 0;
-  color: #333333;
+  color: #333;
 }
 
 .Movie-date,
 .Movie-rate {
-  font-size: 0.9rem;
-  color: #666666;
-  margin: 5px 0;
+  font-size: 0.9em;
+  color: #666;
+  margin-top: 5px;
 }
 
 .Movie-image {
   width: 100%;
   height: 300px;
+  border-radius: 8px;
   object-fit: cover;
-  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease;
 }
 
 .Movie-wrapper:hover .Movie-image {
   transform: scale(1.05);
-}
-
-@media (max-width: 1024px) {
-  .Movie-container {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .Movie-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  .Movie-search {
-    width: 80%;
-  }
-}
-
-@media (max-width: 480px) {
-  .Movie-container {
-    grid-template-columns: 1fr;
-  }
-  .Movie-search {
-    width: 90%;
-  }
 }
